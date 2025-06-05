@@ -1,8 +1,7 @@
 import './App.css'
-import Clock from './Clock'
-import StudentList from './StudentList'
-import StudentItem from './StudentItem'
-import AddStudentForm from './AddStudentForm'
+import Clock from './Components/Clock.tsx'
+import StudentList from './Components/StudentList.tsx'
+import AddStudentForm from './Components/AddStudentForm.tsx'
 
 function App() {
 
@@ -13,7 +12,6 @@ function App() {
 
       <StudentList/>
 
-      <StudentItem/>
 
       <AddStudentForm/>
     </>
