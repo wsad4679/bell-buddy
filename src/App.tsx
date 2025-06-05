@@ -22,19 +22,52 @@ function App() {
     }
 
 
+    const [showClock, setShowClock] = useState(false);
+    const [showList, setShowList] = useState(true);
+    const [showForm, setShowForm] = useState(true);
 
 
 
   return (
-    <>
-      <Clock/>
+      <>
+          <h2>Widoczność komponentów:</h2>
+          <label>
+              <input
+                  type="checkbox"
+                  checked={showClock}
+                  onChange={() => setShowClock(prev => !prev)}
+              />
+              Zegar
+          </label>
+          <label>
+              <input
+                  type="checkbox"
+                  checked={showList}
+                  onChange={() => setShowList(prev => !prev)}
+              />
+              Lista uczniów
+          </label>
+          <label>
+              <input
+                  type="checkbox"
+                  checked={showForm}
+                  onChange={() => setShowForm(prev => !prev)}
+              />
+              Formularz dodawania ucznia
+          </label>
 
-      <StudentList students= {studentsList} onToggleAttendance={updateStudentAttendance} />
+          <hr />
 
-
-      <AddStudentForm addStudent={getStudentData}/>
-    </>
-  )
+          {showClock && <Clock />}
+          {showList && (
+              <StudentList
+                  students={studentsList}
+                  onToggleAttendance={updateStudentAttendance}
+              />
+          )}
+          {showForm && <AddStudentForm addStudent={getStudentData} />}
+      </>
+  );
 }
 
 export default App
