@@ -1,7 +1,7 @@
 import './App.css'
-import Clock from './Components/Clock.tsx'
-import StudentList from './Components/StudentList.tsx'
-import AddStudentForm from './Components/AddStudentForm.tsx'
+import Clock from './components/Clock.tsx'
+import StudentList from './components/StudentList.tsx'
+import AddStudentForm from './components/AddStudentForm.tsx'
 
 function App() {
 

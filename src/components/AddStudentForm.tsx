@@ -1,13 +1,8 @@
 import React, {useState} from "react";
+import type {Student} from "../types/Student.ts";
 
 const AddStudentForm = () =>
 {
-    interface Student {
-        id: number;
-        name: string;
-        surname: string;
-        isPresent: boolean;
-    }
 
     const [students, setStudents] = useState<Student>({
         id: 0,

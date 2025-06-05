@@ -1,11 +1,8 @@
 import React from "react";
+import type {Student} from "../types/Student.ts";
 
-interface Student {
-    id: number;
-    name: string;
-    surname: string;
-    isPresent: boolean;
-}
+
+
 
 interface StudentItemProps {
     student: Student;
