@@ -1,39 +1,54 @@
 import {useEffect, useState} from "react";
 
 
-const Clock = () =>
-{
+const Clock = () => {
 
 
     const [time, setTime] = useState<string>("");
+    const [showTimer, setShowTimer] = useState<boolean>(false);
 
+    useEffect(() => {
 
-    useEffect(()=>{
-        const updateTime = ()=>{
+        const updateTime =() => {
             const now = new Date();
-            const formatted = now.toLocaleTimeString()
-            setTime(formatted)
-
+            const formattedTime = now.toLocaleTimeString();
+            setTime(formattedTime);
         }
 
-       updateTime();
+        updateTime();
 
-        const intervalId = setInterval(updateTime, 1000);
+        const interval = setInterval(updateTime, 1000);
 
-        return ()=> clearInterval(intervalId);
+        return() => clearInterval(interval);
+
     }, [])
 
 
     return (
         <>
-                <div style={{ fontSize: "2rem" , textAlign: "center" ,
-                    marginTop: "2rem",  }} >
-                    {time}
+            {
+                showTimer && <div>
+                    Aktualny czas: {time}
                 </div>
-        </>
+            }
 
+            <button onClick={() => setShowTimer(true)}
+                    style={{color:"beige", backgroundColor: "#123abc", margin:"10px",
+                        padding:"20px"}}
+            >Pokaż zegarek</button>
+            <button onClick={() => setShowTimer(false)}
+                    style={{color:"#123abc", backgroundColor: "beige", margin:"10px",
+                        padding:"20px"}}
+            >Schowaj zegarek</button>
+
+
+
+
+        </>
     )
 
-}
 
+
+
+}
 export default Clock
