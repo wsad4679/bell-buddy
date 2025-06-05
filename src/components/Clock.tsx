@@ -7,7 +7,6 @@ const Clock = () => {
 
     const [time, setTime] = useState<string>("");
     const [showTimer, setShowTimer] = useState<boolean>(false);
-    const [showCountDown, setShowCountDown] = useState<boolean>(false);
     const [selectedZone, setSelectedZone] = useState<string>("Europe/Warsaw");
 
     const timeZones = [
@@ -39,7 +38,7 @@ const Clock = () => {
         <>
             {
                 showTimer && <div>
-                    Aktualny czas: {time}
+                    Aktualny czas: {time} <br/>
 
                     <label> Wybierz strefę czasową: </label>
 
@@ -58,29 +57,12 @@ const Clock = () => {
                 </div>
             }
 
-            <button onClick={() => setShowTimer(true)}
-                    style={{color:"beige", backgroundColor: "#123abc", margin:"10px",
-                        padding:"20px"}}
-            >Pokaż zegarek</button>
-            <button onClick={() => setShowTimer(false)}
-                    style={{color:"#123abc", backgroundColor: "beige", margin:"10px",
-                        padding:"20px"}}
-            >Schowaj zegarek</button>
+            <button onClick={() => setShowTimer(true)}>Pokaż zegarek</button>
+            <button onClick={() => setShowTimer(false)}>Schowaj zegarek</button>
 
 
 
-            {
-                showCountDown && <CountDownTimer/>
-            }
 
-            <button onClick={() => setShowCountDown(true)}
-                    style={{color:"beige", backgroundColor: "#123abc", margin:"10px",
-                        padding:"20px"}}
-            >Pokaż Licznik</button>
-            <button onClick={() => setShowCountDown(false)}
-                    style={{color:"#123abc", backgroundColor: "beige", margin:"10px",
-                        padding:"20px"}}
-            >Schowaj Licznik</button>
 
 
         </>

@@ -35,9 +35,12 @@ const AddStudentForm = ({addStudent}: AddStudent) =>
     return(
         <form onSubmit={handleSubmit}>
         <h3>Student Form</h3>
-        Imie: <input type="text" onChange={handleChange } value={student.name} name="name"/>
-        Nazwisko: <input type="text" onChange={handleChange} value={student.surname} name="surname"/>
-        Czy obecny: <input type="checkbox" onChange={handleChange} checked={student.isPresent} name="isPresent"/>
+            <label >Imie: <input type="text" onChange={handleChange } value={student.name} name="name"/></label>
+            <br/>
+            <label>Nazwisko: <input type="text" onChange={handleChange} value={student.surname} name="surname"/></label>
+            <br/>
+            <label>Czy obecny: <input type="checkbox" onChange={handleChange} checked={student.isPresent} name="isPresent"/></label>
+            <br/>
             <button type="submit" >Dodaj ucznia</button>
         </form>
     )

@@ -9,11 +9,12 @@ interface StudentItemProps {
     onChange: (id: number, isPresent: boolean) => void;
 }
 
+
 const StudentItem: React.FC<StudentItemProps> = ({ student, onChange }) => {
     return (
-        <li>
+        <li className="student-item">
             <p>
-                {student.name} {student.surname} (ID: {student.id})
+                {student.name} {student.surname} <br/>(ID: {student.id})
             </p>
             <label>
                 <input
