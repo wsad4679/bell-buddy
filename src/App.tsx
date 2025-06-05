@@ -7,10 +7,18 @@ import {useState} from "react";
 
 function App() {
 
-    const [studentsList, setStudents] = useState<Student[]>([]);
+    const [studentsList, setStudents] = useState<Student[]>(
+        () =>{
+        const savedStudents = localStorage.getItem('students');
+        return savedStudents ? JSON.parse(savedStudents) : []
+        });
 
-    function getStudentData (student: Student) {
-        setStudents(prevState => [...prevState, student]);
+    function getStudentData(student: Student) {
+        setStudents(prevState => {
+            const updatedList = [...prevState, student];
+            localStorage.setItem('students', JSON.stringify(updatedList)); // ✅ zapisujemy całą listę
+            return updatedList;
+        });
     }
 
     function updateStudentAttendance(id: number, isPresent: boolean) {
